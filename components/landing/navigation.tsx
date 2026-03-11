@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
-
+import { openTypeformModal } from "@/components/typeform-modal";
 const navLinks = [
   { name: "Services", href: "#services" },
   { name: "Our Process", href: "#process" },
@@ -84,7 +84,7 @@ export function Navigation() {
               className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
               asChild
             >
-              <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer">Get In Touch</a>
+              <button type="button" onClick={openTypeformModal}>Get In Touch</button>
             </Button>
           </div>
 
@@ -154,7 +154,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
               asChild
             >
-              <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer">Get In Touch</a>
+              <button type="button" onClick={openTypeformModal}>Get In Touch</button>
             </Button>
           </div>
         </div>

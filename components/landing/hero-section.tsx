@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { openTypeformModal } from "@/components/typeform-modal";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./animated-sphere";
 
@@ -134,7 +135,7 @@ export function HeroSection() {
               className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
               asChild
             >
-              <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer">Get In Touch</a>
+              <button type="button" onClick={openTypeformModal}>Get In Touch</button>
             </Button>
           </div>
         </div>

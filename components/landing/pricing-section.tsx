@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Check } from "lucide-react";
+import { openTypeformModal } from "@/components/typeform-modal";
 
 const services = [
   {
@@ -112,11 +113,10 @@ export function PricingSection() {
               </ul>
 
               {/* CTA */}
-              <a
-                href="https://ssccmannan172794.typeform.com/to/lqsJCsCw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
+              <button
+                type="button"
+                onClick={openTypeformModal}
+                className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group cursor-pointer ${
                   service.popular
                     ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
                     : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
@@ -124,7 +124,7 @@ export function PricingSection() {
               >
                 {service.cta}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </button>
             </div>
           ))}
         </div>
@@ -132,9 +132,9 @@ export function PricingSection() {
         {/* Bottom Note */}
         <p className="mt-12 text-center text-sm text-muted-foreground">
           All engagements include detailed scope definition, quality assurance, and comprehensive reporting.{" "}
-          <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground transition-colors">
+          <button type="button" onClick={openTypeformModal} className="underline underline-offset-4 hover:text-foreground transition-colors cursor-pointer">
             Discuss your needs
-          </a>
+          </button>
         </p>
       </div>
     </section>

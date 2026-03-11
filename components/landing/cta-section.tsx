@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { openTypeformModal } from "@/components/typeform-modal";
 import { AnimatedTetrahedron } from "./animated-tetrahedron";
 
 export function CtaSection() {
@@ -68,10 +69,10 @@ export function CtaSection() {
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                     asChild
                   >
-                    <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer">
+                    <button type="button" onClick={openTypeformModal}>
                       Get in touch
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                    </a>
+                    </button>
                   </Button>
                   <Button
                     size="lg"

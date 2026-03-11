@@ -13,6 +13,7 @@ import { ClientsSection } from "@/components/landing/clients-section";
 import { PricingSection } from "@/components/landing/pricing-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
+import { TypeformModal } from "@/components/typeform-modal";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       <PricingSection />
       <CtaSection />
       <FooterSection />
+      <TypeformModal />
     </main>
   );
 }
