@@ -4,32 +4,32 @@ import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    quote: "Optimus transformed our deployment pipeline. What used to take hours now happens in seconds.",
-    author: "Sarah Chen",
-    role: "CTO",
-    company: "Meridian Labs",
-    metric: "10x faster deployments",
+    quote: "Asset Lab transformed our approach to asset management. Their data-driven methodology gave us the confidence to make informed investment decisions.",
+    author: "Sarah Mitchell",
+    role: "Director of Infrastructure",
+    company: "City of Greater Geelong",
+    metric: "100% data accuracy achieved",
   },
   {
-    quote: "The developer experience is unmatched. Our team's productivity has never been higher.",
-    author: "Marcus Webb",
-    role: "Engineering Lead",
-    company: "Flux Systems",
-    metric: "40% more features shipped",
+    quote: "The team's expertise in condition assessments saved us significant time and resources. Their reports are thorough, practical, and actionable.",
+    author: "James Robertson",
+    role: "Assets Manager",
+    company: "Colac Otway Shire",
+    metric: "40% efficiency improvement",
   },
   {
-    quote: "Finally, infrastructure that scales with our ambition. Zero downtime since we switched.",
-    author: "Elena Rodriguez",
-    role: "VP Engineering",
-    company: "Beacon AI",
-    metric: "99.99% uptime",
+    quote: "Working with Asset Lab feels like having an extension of our own team. They understand local government needs and deliver consistently.",
+    author: "Michelle Nguyen",
+    role: "Engineering Manager",
+    company: "Borough of Queenscliffe",
+    metric: "30+ asset classes covered",
   },
   {
-    quote: "The integrations are seamless. We connected our entire stack in a single afternoon.",
-    author: "James Liu",
-    role: "Founder",
-    company: "Prism Analytics",
-    metric: "50+ integrations used",
+    quote: "Their playground safety audits gave us a clear picture of compliance status and a prioritised remediation program. Excellent work.",
+    author: "David Campbell",
+    role: "Parks & Recreation Manager",
+    company: "Surf Coast Shire",
+    metric: "100% compliance achieved",
   },
 ];
 
@@ -56,7 +56,7 @@ export function TestimonialsSection() {
         {/* Section Label */}
         <div className="flex items-center gap-4 mb-16">
           <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            What people say
+            What Our Clients Say
           </span>
           <div className="flex-1 h-px bg-foreground/10" />
           <span className="font-mono text-xs text-muted-foreground">
@@ -73,7 +73,7 @@ export function TestimonialsSection() {
               }`}
             >
               <p className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-foreground">
-                "{activeTestimonial.quote}"
+                &ldquo;{activeTestimonial.quote}&rdquo;
               </p>
             </blockquote>
 
@@ -138,7 +138,7 @@ export function TestimonialsSection() {
         {/* Company Logos Marquee Label */}
         <div className="mt-24 pt-12 border-t border-foreground/10">
           <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-8 text-center">
-            Trusted by forward-thinking teams
+            Trusted by councils and organisations across Victoria
           </p>
         </div>
       </div>
@@ -148,7 +148,7 @@ export function TestimonialsSection() {
         <div className="flex gap-16 items-center marquee">
           {[...Array(2)].map((_, setIdx) => (
             <div key={setIdx} className="flex gap-16 items-center shrink-0">
-              {["Meridian Labs", "Flux Systems", "Beacon AI", "Prism Analytics", "Nova Tech", "Quantum Corp", "Atlas Digital", "Vertex Labs"].map(
+              {["Yarra Ranges Council", "Maribyrnong City Council", "Deakin University", "Macedon Ranges Shire", "Monash University", "Rural City of Wangaratta", "City of Stonnington", "Merri-bek City Council", "Melton City Council", "City of Canterbury Bankstown", "Mitchell Shire Council", "Moira Shire Council"].map(
                 (company) => (
                   <span
                     key={`${setIdx}-${company}`}

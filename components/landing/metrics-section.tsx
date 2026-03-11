@@ -12,7 +12,6 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          let start = 0;
           const duration = 2000;
           const startTime = performance.now();
 
@@ -46,40 +45,34 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
 const metrics = [
   { 
-    value: 2847392, 
+    value: 30, 
+    suffix: "+", 
+    prefix: "",
+    label: "Years combined experience",
+  },
+  { 
+    value: 100, 
+    suffix: "+", 
+    prefix: "",
+    label: "Projects delivered",
+  },
+  { 
+    value: 4, 
     suffix: "", 
     prefix: "",
-    label: "API requests today",
+    label: "Core service areas",
   },
   { 
-    value: 99, 
-    suffix: ".99%", 
+    value: 30, 
+    suffix: "+", 
     prefix: "",
-    label: "Uptime this quarter",
-  },
-  { 
-    value: 23, 
-    suffix: "ms", 
-    prefix: "",
-    label: "Average response time",
-  },
-  { 
-    value: 184, 
-    suffix: "", 
-    prefix: "",
-    label: "Countries served",
+    label: "Council & government clients",
   },
 ];
 
 export function MetricsSection() {
-  const [time, setTime] = useState(new Date());
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -94,32 +87,32 @@ export function MetricsSection() {
   }, []);
 
   return (
-    <section id="studio" ref={sectionRef} className="relative py-24 lg:py-32 border-y border-foreground/10">
+    <section id="about" ref={sectionRef} className="relative py-24 lg:py-32 border-y border-foreground/10">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Live metrics
+              About Asset Lab
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Performance you
+              Results you
               <br />
               can measure.
             </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2" title="79 Hodder Street, Brighton East, VIC 3187">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Live
+              Brighton East, VIC
             </span>
             <span className="text-foreground/30">|</span>
-            <span>{time.toLocaleTimeString()}</span>
+            <span>Est. 2019</span>
           </div>
         </div>
         

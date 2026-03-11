@@ -21,9 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Optimus - Platform to Create',
-  description: 'The creative platform for teams who ship. Build, deploy, and scale with unprecedented velocity.',
-  generator: 'v0.app',
+  title: 'Asset Lab | Asset Management and Data Specialists',
+  description: 'Helping organisations make good decisions. From collecting data in the field to informing strategy and planning — comprehensive asset management solutions across the entire asset lifecycle.',
 }
 
 export default function RootLayout({

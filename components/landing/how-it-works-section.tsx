@@ -5,38 +5,21 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "I",
-    title: "Connect your tools",
-    description: "Integrate with your existing stack in minutes. We support 200+ data sources out of the box.",
-    code: `import { optimus } from '@optimus/core'
-
-optimus.connect({
-  source: 'your-database',
-  sync: true
-})`,
+    title: "Understand your assets",
+    description: "We begin by understanding your organisation's assets, goals, and current data maturity. Every project starts with a clear scope and purpose.",
+    detail: "Asset register review, gap analysis, stakeholder workshops, and data quality assessment.",
   },
   {
     number: "II",
-    title: "Build your workflow",
-    description: "Design powerful automations with our visual builder or write code directly.",
-    code: `optimus.workflow('process', {
-  trigger: 'event',
-  actions: [
-    'validate',
-    'transform', 
-    'deliver'
-  ]
-})`,
+    title: "Collect & capture data",
+    description: "Our field teams deploy to capture accurate, reliable data using proven methodologies and modern technology.",
+    detail: "GPS-enabled inspections, condition assessments, defect recording, photo documentation, and spatial mapping.",
   },
   {
     number: "III",
-    title: "Ship to production",
-    description: "Deploy globally with zero configuration. Your app goes live in under 30 seconds.",
-    code: `optimus.deploy({
-  target: 'production',
-  regions: 'auto'
-})
-
-// Deployed to 12 regions`,
+    title: "Analyse & deliver insights",
+    description: "Raw data is transformed into actionable knowledge — lifecycle models, risk assessments, and prioritised works programs.",
+    detail: "Data cleansing, GIS integration, condition trending, financial modelling, and strategic recommendations.",
   },
 ];
 
@@ -66,7 +49,7 @@ export function HowItWorksSection() {
 
   return (
     <section
-      id="how-it-works"
+      id="process"
       ref={sectionRef}
       className="relative py-24 lg:py-32 bg-foreground text-background overflow-hidden"
     >
@@ -88,7 +71,7 @@ export function HowItWorksSection() {
         <div className="mb-16 lg:mb-24">
           <span className="inline-flex items-center gap-3 text-sm font-mono text-background/50 mb-6">
             <span className="w-8 h-px bg-background/30" />
-            Process
+            Our Process
           </span>
           <h2
             className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
@@ -97,7 +80,7 @@ export function HowItWorksSection() {
           >
             Three steps.
             <br />
-            <span className="text-background/50">Infinite possibilities.</span>
+            <span className="text-background/50">Better decisions.</span>
           </h2>
         </div>
 
@@ -141,7 +124,7 @@ export function HowItWorksSection() {
             ))}
           </div>
 
-          {/* Code display */}
+          {/* Detail display */}
           <div className="lg:sticky lg:top-32 self-start">
             <div className="border border-background/10 overflow-hidden">
               {/* Window header */}
@@ -151,43 +134,36 @@ export function HowItWorksSection() {
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                 </div>
-                <span className="text-xs font-mono text-background/40">workflow.ts</span>
+                <span className="text-xs font-mono text-background/40">deliverables</span>
               </div>
 
-              {/* Code content */}
-              <div className="p-8 font-mono text-sm min-h-[280px]">
-                <pre className="text-background/70">
-                  {steps[activeStep].code.split('\n').map((line, lineIndex) => (
-                    <div 
-                      key={`${activeStep}-${lineIndex}`} 
-                      className="leading-loose code-line-reveal"
-                      style={{ 
-                        animationDelay: `${lineIndex * 80}ms`,
-                      }}
-                    >
-                      <span className="text-background/20 select-none w-8 inline-block">{lineIndex + 1}</span>
-                      <span className="inline-flex">
-                        {line.split('').map((char, charIndex) => (
-                          <span
-                            key={`${activeStep}-${lineIndex}-${charIndex}`}
-                            className="code-char-reveal"
-                            style={{
-                              animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
-                            }}
-                          >
-                            {char === ' ' ? '\u00A0' : char}
-                          </span>
-                        ))}
-                      </span>
-                    </div>
-                  ))}
-                </pre>
+              {/* Content */}
+              <div className="p-8 font-mono text-sm min-h-[280px] flex items-center">
+                <div>
+                  <p className="text-background/50 text-xs uppercase tracking-wider mb-6">What we deliver</p>
+                  <div className="space-y-3">
+                    {steps[activeStep].detail.split(", ").map((item, i) => (
+                      <div 
+                        key={`${activeStep}-${i}`} 
+                        className="flex items-center gap-3 text-background/70"
+                        style={{
+                          animation: 'lineRevealProcess 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                          animationDelay: `${i * 100}ms`,
+                          opacity: 0,
+                        }}
+                      >
+                        <span className="w-1.5 h-1.5 bg-background/40 rounded-full shrink-0" />
+                        <span className="capitalize">{item.replace(/\.$/, '')}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Status */}
               <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-mono text-background/40">Ready</span>
+                <span className="text-xs font-mono text-background/40">Active projects</span>
               </div>
             </div>
           </div>
@@ -200,29 +176,14 @@ export function HowItWorksSection() {
           to { width: 100%; }
         }
         
-        .code-line-reveal {
-          opacity: 0;
-          transform: translateX(-8px);
-          animation: lineReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        
-        @keyframes lineReveal {
+        @keyframes lineRevealProcess {
+          from {
+            opacity: 0;
+            transform: translateX(-8px);
+          }
           to {
             opacity: 1;
             transform: translateX(0);
-          }
-        }
-        
-        .code-char-reveal {
-          opacity: 0;
-          filter: blur(8px);
-          animation: charReveal 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        
-        @keyframes charReveal {
-          to {
-            opacity: 1;
-            filter: blur(0);
           }
         }
       `}</style>

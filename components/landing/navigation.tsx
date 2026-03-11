@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
-  { name: "Features", href: "#features" },
-  { name: "How it works", href: "#how-it-works" },
-  { name: "Developers", href: "#developers" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Services", href: "#services" },
+  { name: "Our Process", href: "#process" },
+  { name: "Projects", href: "#projects" },
+  { name: "Team", href: "#team" },
+  { name: "About", href: "#about" },
 ];
 
 export function Navigation() {
@@ -44,9 +46,17 @@ export function Navigation() {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-xl" : "text-2xl"}`}>Optimus</span>
-            <span className={`text-muted-foreground font-mono transition-all duration-500 ${isScrolled ? "text-[10px] mt-0.5" : "text-xs mt-1"}`}>TM</span>
+          <a href="#" className="flex items-center gap-3 group">
+            <Image 
+              src="/images/Asset-Lab-Square-Logo.jpg" 
+              alt="Asset Lab" 
+              width={36} 
+              height={36} 
+              className={`transition-all duration-500 ${isScrolled ? "w-7 h-7" : "w-9 h-9"}`}
+            />
+            <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
+              Asset<span className="text-muted-foreground">Lab</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -65,14 +75,16 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="#" className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}>
-              Sign in
+            <a href="tel:0352428683" className={`text-foreground/70 hover:text-foreground transition-all duration-500 flex items-center gap-2 ${isScrolled ? "text-xs" : "text-sm"}`}>
+              <Phone className="w-3 h-3" />
+              (03) 5242 8683
             </a>
             <Button
               size="sm"
               className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
+              asChild
             >
-              Start creating
+              <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer">Get In Touch</a>
             </Button>
           </div>
 
@@ -133,14 +145,16 @@ export function Navigation() {
               variant="outline" 
               className="flex-1 rounded-full h-14 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
+              asChild
             >
-              Sign in
+              <a href="tel:0352428683">Call Us</a>
             </Button>
             <Button 
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
+              asChild
             >
-              Start creating
+              <a href="https://ssccmannan172794.typeform.com/to/lqsJCsCw" target="_blank" rel="noopener noreferrer">Get In Touch</a>
             </Button>
           </div>
         </div>

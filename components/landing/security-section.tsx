@@ -1,32 +1,32 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { Shield, Lock, Eye, FileCheck } from "lucide-react";
+import { Shield, Award, CheckCircle, FileCheck } from "lucide-react";
 
-const securityFeatures = [
+const qualityFeatures = [
   {
     icon: Shield,
-    title: "SOC 2 Type II",
-    description: "Independently audited security controls with continuous monitoring.",
+    title: "Quality Assured",
+    description: "Rigorous QA processes applied to all data capture and analysis. Every deliverable is peer-reviewed.",
   },
   {
-    icon: Lock,
-    title: "End-to-end encryption",
-    description: "AES-256 encryption for data at rest and TLS 1.3 in transit.",
+    icon: Award,
+    title: "Industry Standards",
+    description: "Work completed to IIMM, IPWEA, and relevant Australian Standards for asset management.",
   },
   {
-    icon: Eye,
-    title: "Zero-trust architecture",
-    description: "Every request is authenticated and authorized. No exceptions.",
+    icon: CheckCircle,
+    title: "Data Integrity",
+    description: "Comprehensive validation checks ensuring accuracy and consistency across all datasets.",
   },
   {
     icon: FileCheck,
-    title: "GDPR & HIPAA",
-    description: "Full compliance with data protection and healthcare regulations.",
+    title: "Compliance Ready",
+    description: "Deliverables structured to meet audit requirements and regulatory reporting obligations.",
   },
 ];
 
-const certifications = ["SOC 2", "ISO 27001", "HIPAA", "GDPR", "CCPA"];
+const standards = ["IIMM", "IPWEA", "AS/NZS ISO 55001", "Fair Value", "AASB 13"];
 
 export function SecuritySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +45,7 @@ export function SecuritySection() {
   }, []);
 
   return (
-    <section id="security" ref={sectionRef} className="relative py-24 lg:py-32 bg-foreground/[0.02] overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 lg:py-32 bg-foreground/[0.02] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left: Content */}
@@ -56,29 +56,29 @@ export function SecuritySection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Security
+              Quality & Compliance
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Trust is
+              Quality is
               <br />
               non-negotiable.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              Enterprise-grade security isn&apos;t optional. It&apos;s built into every layer 
-              of our platform, from infrastructure to application.
+              Every project we deliver meets the highest industry standards. 
+              Our processes ensure data accuracy, compliance readiness, and audit-grade documentation.
             </p>
 
-            {/* Certifications */}
+            {/* Standards */}
             <div className="flex flex-wrap gap-3">
-              {certifications.map((cert, index) => (
+              {standards.map((standard, index) => (
                 <span
-                  key={cert}
+                  key={standard}
                   className={`px-4 py-2 border border-foreground/10 text-sm font-mono transition-all duration-500 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: `${index * 50 + 200}ms` }}
                 >
-                  {cert}
+                  {standard}
                 </span>
               ))}
             </div>
@@ -86,7 +86,7 @@ export function SecuritySection() {
 
           {/* Right: Features */}
           <div className="grid gap-6">
-            {securityFeatures.map((feature, index) => (
+            {qualityFeatures.map((feature, index) => (
               <div
                 key={feature.title}
                 className={`p-6 border border-foreground/10 hover:border-foreground/20 transition-all duration-500 group ${

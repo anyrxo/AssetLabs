@@ -2,37 +2,35 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { AnimatedWave } from "./animated-wave";
+import Image from "next/image";
 
 const footerLinks = {
-  Product: [
-    { name: "Features", href: "#features" },
-    { name: "How it works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Integrations", href: "#integrations" },
-  ],
-  Developers: [
-    { name: "Documentation", href: "#developers" },
-    { name: "API Reference", href: "#" },
-    { name: "SDK", href: "#developers" },
-    { name: "Status", href: "#" },
+  Services: [
+    { name: "Asset Management", href: "#services" },
+    { name: "Data Collection", href: "#services" },
+    { name: "Condition Audits", href: "#services" },
+    { name: "Works Planning", href: "#services" },
   ],
   Company: [
-    { name: "About", href: "#" },
+    { name: "About Us", href: "#about" },
+    { name: "Our Process", href: "#process" },
+    { name: "Projects", href: "#projects" },
+    { name: "Quality", href: "#" },
+  ],
+  Resources: [
+    { name: "Case Studies", href: "#" },
+    { name: "Industry Standards", href: "#" },
     { name: "Blog", href: "#" },
-    { name: "Careers", href: "#", badge: "Hiring" },
-    { name: "Contact", href: "#" },
+    { name: "Contact", href: "#contact" },
   ],
   Legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-    { name: "Security", href: "#security" },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
   ],
 };
 
 const socialLinks = [
-  { name: "Twitter", href: "#" },
-  { name: "GitHub", href: "#" },
-  { name: "LinkedIn", href: "#" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/asset-lab/" },
 ];
 
 export function FooterSection() {
@@ -49,14 +47,29 @@ export function FooterSection() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="col-span-2">
-              <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display">Optimus</span>
-                <span className="text-xs text-muted-foreground font-mono">TM</span>
+              <a href="#" className="inline-flex items-center gap-3 mb-6">
+                <Image 
+                  src="/images/Asset-Lab-Square-Logo.jpg" 
+                  alt="Asset Lab" 
+                  width={32} 
+                  height={32} 
+                />
+                <span className="text-2xl font-display">
+                  Asset<span className="text-muted-foreground">Lab</span>
+                </span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                The platform for teams who ship. Build, deploy, and scale with unprecedented velocity.
+                Helping organisations make good decisions. Asset management and data specialists
+                based in Melbourne and Geelong, Victoria.
               </p>
+
+              {/* Contact info */}
+              <div className="space-y-2 text-sm text-muted-foreground mb-6">
+                <p>(03) 5242 8683</p>
+                <p>info@assetlab.net.au</p>
+                <p>79 Hodder St, Brighton East, VIC 3187</p>
+              </div>
 
               {/* Social Links */}
               <div className="flex gap-6">
@@ -64,6 +77,8 @@ export function FooterSection() {
                   <a
                     key={link.name}
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
                   >
                     {link.name}
@@ -85,11 +100,6 @@ export function FooterSection() {
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
                       >
                         {link.name}
-                        {"badge" in link && link.badge && (
-                          <span className="text-xs px-2 py-0.5 bg-foreground text-background rounded-full">
-                            {link.badge}
-                          </span>
-                        )}
                       </a>
                     </li>
                   ))}
@@ -102,13 +112,13 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            2025 Optimus. All rights reserved.
+            &copy; {new Date().getFullYear()} Asset Lab Pty Ltd. All rights reserved. ABN: 37 633 245 578
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2" title="79 Hodder Street, Brighton East, VIC 3187">
               <span className="w-2 h-2 rounded-full bg-green-500" />
-              All systems operational
+              Melbourne & Geelong, Victoria
             </span>
           </div>
         </div>
