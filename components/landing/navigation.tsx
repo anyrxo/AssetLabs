@@ -113,6 +113,15 @@ export function Navigation() {
         }`}
         style={{ top: 0 }}
       >
+        {/* Close button inside overlay */}
+        <button
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute top-6 right-6 p-2 z-50"
+          aria-label="Close menu"
+        >
+          <X className="w-7 h-7" />
+        </button>
+
         <div className="flex flex-col h-full px-8 pt-28 pb-8">
           {/* Navigation Links */}
           <div className="flex-1 flex flex-col justify-center gap-8">
